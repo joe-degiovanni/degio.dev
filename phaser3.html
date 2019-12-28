@@ -18,7 +18,8 @@
         },
         scene: {
             preload: preload,
-            create: create
+            create: create,
+            update: update
         }
     };
 
@@ -52,7 +53,9 @@
         logo.setCollideWorldBounds(true);
 
         emitter.startFollow(logo);
+    }
 
+    function update() {
         cursors = this.input.keyboard.createCursorKeys();
 
         if (cursors.left.isDown) {
