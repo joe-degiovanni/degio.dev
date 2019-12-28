@@ -56,6 +56,10 @@
         logo.setBounce(1, 1);
         logo.setCollideWorldBounds(true);
 
+        this.input.on('pointerdown', function (pointer) {
+            logo.setVelocity(0, logo.body.velocity.y);
+        }, this);
+
         emitter.startFollow(logo);
     }
 
