@@ -52,6 +52,16 @@
         logo.setCollideWorldBounds(true);
 
         emitter.startFollow(logo);
+
+        cursors = this.input.keyboard.createCursorKeys();
+
+        if (cursors.left.isDown) {
+            logo.setVelocity(-100);
+        } else if (cursors.right.isDown) {
+            logo.setVelocity(100);
+        } else {
+            logo.setVelocity(100, 200);
+        }
     }
     </script>
 
