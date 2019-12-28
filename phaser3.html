@@ -24,6 +24,8 @@
     };
 
     var game = new Phaser.Game(config);
+    var logo = null;
+    var cursors = null;
 
     function preload ()
     {
@@ -46,7 +48,9 @@
             blendMode: 'ADD'
         });
 
-        var logo = this.physics.add.image(400, 100, 'logo');
+        logo = this.physics.add.image(400, 100, 'logo');
+
+        cursors = this.input.keyboard.createCursorKeys();
 
         logo.setVelocity(100, 200);
         logo.setBounce(1, 1);
@@ -56,14 +60,12 @@
     }
 
     function update() {
-        cursors = this.input.keyboard.createCursorKeys();
-
+        var yVelocity = logo.body.velocity.y;
+        var xVelocity = logo.body.velocity.x;
         if (cursors.left.isDown) {
-            logo.setVelocity(-100);
+            logo.setVelocity(xVelocity-10, yVelocity);
         } else if (cursors.right.isDown) {
-            logo.setVelocity(100);
-        } else {
-            logo.setVelocity(100, 200);
+            logo.setVelocity(xVelocity+10, yVelocity);
         }
     }
     </script>
